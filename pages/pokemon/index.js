@@ -1,8 +1,9 @@
-var sprites;
-var count = 0;
-var maxSprites = 0;
+let sprites;
+let count = 0;
+let maxSprites = 0;
 
-const imgElement = document.querySelector("img")
+const imgElement = document.querySelector("#img")
+console.log(imgElement)
 imgElement.addEventListener("click", function () {
     if (maxSprites == count) {
         count = 0
