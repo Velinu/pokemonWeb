@@ -1,18 +1,17 @@
-let sprites;
-let count = 0;
-let maxSprites = 0;
+let images;
+let contadorImagem = 0;
+let totalElements = 0;
 
 const imgElement = document.querySelector("#img")
-console.log(imgElement)
 imgElement.addEventListener("click", function () {
-    if (maxSprites == count) {
-        count = 0
-        const index = count
-        imgElement.src = sprites[index]
+    if (totalElements == contadorImagem) {
+        contadorImagem = 0
+        const index = contadorImagem
+        imgElement.src = images[index]
     } else {
-        const index = count
-        imgElement.src = sprites[index]
-        count++
+        const index = contadorImagem
+        imgElement.src = images[index]
+        contadorImagem++
     }
 })
 
@@ -52,8 +51,8 @@ async function getPokemonData(name) {
 
         const sprites = Object.values(jsonData.sprites)
         const validUrls = sprites.filter(url => url !== null && typeof url === 'string')
-        sprites = validUrls
-        maxSprites = validUrls.length
+        images = validUrls
+        totalElements = validUrls.length
     } catch (error) {
         console.error(error)
     }
